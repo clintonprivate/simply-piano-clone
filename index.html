@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Audio MIDI</title>
+        <title>Simply Piano Clone</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <p id="frequency">Current Frequency:</p>
+        <button id="pause">||</button>
+        <h1 id="instruct">Play the note C</h1>
+        <div id="staff">
+            <div id="clefsymbol"></div>
+        </div>
+        <div id="levelprogress">0/10</div>
+        <div class="note">
+            <div class="notestem"></div>
+            <div class="notehead"></div>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>
