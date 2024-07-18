@@ -1,11 +1,9 @@
-var stageType = "newnote";
-var lowestStaffNote = ["E", 4];
-var lowestStaffLineHeight = document.getElementById("staff").offsetTop + document.getElementById("staff").offsetHeight;
-var noteOrder = ["C", "D", "E", "F", "G", "A", "B"];
-var noteToPlay = ["A", 3];
-var notesToLearn = ["A3", "B3", "E4", "F#3", "G#3", "C#4", "E#4"];
-
 function setNotePosition() {
+    var lowestStaffNote = ["E", 4];
+    var lowestStaffLineHeight = document.getElementById("staff").offsetTop + document.getElementById("staff").offsetHeight;
+    var noteOrder = ["C", "D", "E", "F", "G", "A", "B"];
+    var noteToPlay = ["A", 3];
+    var notesToLearn = ["A3", "B3", "E4", "F#3", "G#3", "C#4", "E#4"];
     var noteHeight = document.getElementsByClassName("note")[0].offsetHeight;
     var headHeight = document.getElementsByClassName("notehead")[0].offsetHeight;
     var staffHeight = document.getElementById("staff").offsetHeight;
@@ -13,7 +11,7 @@ function setNotePosition() {
     document.getElementsByClassName("note")[0].style.top = notePosition.toString() + "px";
 }
 
-function addMoreNotes() {
+function addMoreNotes(stageType) {
     if (stageType == "newnote") {
         var xMargin = 120;
         for (let i = 0; i < 2; i++) {
