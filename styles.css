@@ -57,7 +57,7 @@ body {
 }
 
 .note {
-	position: relative;
+	position: fixed;
     left: 25vw;
 	width: 5.5vh;
 	height: 14.5vh;
