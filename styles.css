@@ -58,7 +58,7 @@ body {
 
 .note {
 	position: relative;
-    left: 20vw;
+    left: 25vw;
 	width: 5.5vh;
 	height: 14.5vh;
 }
@@ -81,8 +81,11 @@ body {
 }
 
 #clefsymbol {
+    position: relative;
+    left: 3%;
+    top: -50%;
     width: 6vw;
-    height: 160%;
-    background-image: url('resources/images/treble.jpg');
+    height: 200%;
+    background-image: url('resources/images/treble.png');
     background-size: 100% 100%;
 }
