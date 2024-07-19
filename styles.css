@@ -89,3 +89,16 @@ body {
     background-image: url('resources/images/treble.png');
     background-size: 100% 100%;
 }
+
+.fadetogreen {
+    animation: fadeToGreen 0.5s forwards;
+}
+
+@keyframes fadeToGreen {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: lightblue;
+    }
+}
