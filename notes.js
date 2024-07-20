@@ -27,6 +27,7 @@ function createNextStage() {
     }
     else {
         stage = ["play"];
+        startPlayStage();
     }
     currentStage++;
     return stage;
