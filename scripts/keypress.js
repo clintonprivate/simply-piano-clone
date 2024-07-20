@@ -6,7 +6,7 @@ document.addEventListener('keydown', function(event) {
         document.getElementsByClassName("notestem")[currentNote].classList.add("fadetogreen");
         currentNote++;
         cooldown = true;
-        if (currentNote == 3) {
+        if (currentNote == document.getElementsByClassName("note").length) {
             setTimeout(function() {
                 currentNote = 0;
                 generateNewNotes();

@@ -1,3 +1,7 @@
+function setInstructionText(note) {
+    document.getElementById("instruct").innerHTML = "Play the note " + note[0];
+}
+
 function createNextStage() {
     var stage = [];
     if (currentStage == 1) {
@@ -29,31 +33,40 @@ function createNextStage() {
 }
 
 function generateNewNotes() {
+    var elements = Array.from(document.getElementsByClassName("note"));
+    for (let i = 1; i < elements.length; i++) {
+        elements[i].remove();
+    }
+    document.getElementsByClassName("notehead")[0].classList.remove("fadetogreen");
+    document.getElementsByClassName("notestem")[0].classList.remove("fadetogreen");
     var nextStage = createNextStage();
+    alert(nextStage);
+    for (let i = 0; i < nextStage.length; i++) {
+        var nextNote = nextStage[i];
+        nextNote = [nextNote.slice(0, -1), Number(nextNote.slice(-1))];
+        setNotePosition(nextNote);
+        if (i < nextStage.length - 1) {
+            addMoreNotes();
+        }
+    }
 }
 
-function setNotePosition() {
+function setNotePosition(nextNote) {
     var lowestStaffNote = ["E", 4];
     var lowestStaffLineHeight = document.getElementById("staff").offsetTop + document.getElementById("staff").offsetHeight;
     var noteOrder = ["C", "D", "E", "F", "G", "A", "B"];
-    var noteToPlay = ["A", 3];
     var noteHeight = document.getElementsByClassName("note")[0].offsetHeight;
     var headHeight = document.getElementsByClassName("notehead")[0].offsetHeight;
     var staffHeight = document.getElementById("staff").offsetHeight;
-    var notePosition = lowestStaffLineHeight - noteHeight + headHeight/2 - staffHeight/8 * (7 * (noteToPlay[1] - lowestStaffNote[1]) + (noteOrder.indexOf(noteToPlay[0]) - noteOrder.indexOf(lowestStaffNote[0])));//-4
+    var notePosition = lowestStaffLineHeight - noteHeight + headHeight/2 - staffHeight/8 * (7 * (nextNote[1] - lowestStaffNote[1]) + (noteOrder.indexOf(nextNote[0]) - noteOrder.indexOf(lowestStaffNote[0])));
     document.getElementsByClassName("note")[0].style.top = notePosition.toString() + "px";
 }
 
-function addMoreNotes(stageType) {
-    if (stageType == "newnote") {
-        var xMargin = 120;
-        for (let i = 0; i < 2; i++) {
-            var initialNote = document.getElementsByClassName("note")[0];
-            var clonedNote = initialNote.cloneNode(true);
-            clonedNote.style.left = (initialNote.offsetLeft + xMargin).toString() + "px";
-            clonedNote.style.top = initialNote.offsetTop.toString() + "px";
-            document.body.appendChild(clonedNote);
-            xMargin += 120;
-        }
-    }
+function addMoreNotes() {
+    var xMargin = 120;
+    var initialNote = document.getElementsByClassName("note")[document.getElementsByClassName("note").length-1];
+    var clonedNote = initialNote.cloneNode(true);
+    clonedNote.style.left = (initialNote.offsetLeft + xMargin).toString() + "px";
+    clonedNote.style.top = initialNote.offsetTop.toString() + "px";
+    document.body.appendChild(clonedNote);
 }
