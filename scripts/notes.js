@@ -52,6 +52,7 @@ function generateNewNotes() {
 }
 
 function setNotePosition(nextNote) {
+    alert(nextNote);
     var lowestStaffNote = ["E", 4];
     var lowestStaffLineHeight = document.getElementById("staff").offsetTop + document.getElementById("staff").offsetHeight;
     var noteOrder = ["C", "D", "E", "F", "G", "A", "B"];
@@ -59,7 +60,7 @@ function setNotePosition(nextNote) {
     var headHeight = document.getElementsByClassName("notehead")[0].offsetHeight;
     var staffHeight = document.getElementById("staff").offsetHeight;
     var notePosition = lowestStaffLineHeight - noteHeight + headHeight/2 - staffHeight/8 * (7 * (nextNote[1] - lowestStaffNote[1]) + (noteOrder.indexOf(nextNote[0]) - noteOrder.indexOf(lowestStaffNote[0])));
-    document.getElementsByClassName("note")[0].style.top = notePosition.toString() + "px";
+    document.getElementsByClassName("note")[document.getElementsByClassName("note").length-1].style.top = notePosition.toString() + "px";
 }
 
 function addMoreNotes() {
