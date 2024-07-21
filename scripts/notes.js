@@ -27,6 +27,7 @@ function createNextStage() {
     }
     else {
         stage = ["play"];
+        startPlayStage();
     }
     currentStage++;
     return stage;
@@ -40,7 +41,7 @@ function generateNewNotes() {
     document.getElementsByClassName("notehead")[0].classList.remove("fadetogreen");
     document.getElementsByClassName("notestem")[0].classList.remove("fadetogreen");
     var nextStage = createNextStage();
-    alert(nextStage);
+    console.log(nextStage);
     for (let i = 0; i < nextStage.length; i++) {
         var nextNote = nextStage[i];
         nextNote = [nextNote.slice(0, -1), Number(nextNote.slice(-1))];
@@ -52,14 +53,13 @@ function generateNewNotes() {
 }
 
 function setNotePosition(nextNote) {
-    alert(nextNote);
     var lowestStaffNote = ["E", 4];
     var lowestStaffLineHeight = document.getElementById("staff").offsetTop + document.getElementById("staff").offsetHeight;
     var noteOrder = ["C", "D", "E", "F", "G", "A", "B"];
     var noteHeight = document.getElementsByClassName("note")[0].offsetHeight;
     var headHeight = document.getElementsByClassName("notehead")[0].offsetHeight;
     var staffHeight = document.getElementById("staff").offsetHeight;
-    var notePosition = lowestStaffLineHeight - noteHeight + headHeight/2 - staffHeight/8 * (7 * (nextNote[1] - lowestStaffNote[1]) + (noteOrder.indexOf(nextNote[0]) - noteOrder.indexOf(lowestStaffNote[0])));
+    var notePosition = lowestStaffLineHeight - noteHeight + headHeight/2 - staffHeight/8 * (7 * (nextNote[1] - lowestStaffNote[1]) + (noteOrder.indexOf(nextNote[0][0]) - noteOrder.indexOf(lowestStaffNote[0])));
     document.getElementsByClassName("note")[document.getElementsByClassName("note").length-1].style.top = notePosition.toString() + "px";
 }
 
