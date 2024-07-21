@@ -1,0 +1,117 @@
+body {
+    background-image: linear-gradient(#3d964e, #7ad1a0, #3d964e);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+#pause {
+    position: fixed;
+    left: 2vw;
+    top: 2vh;
+    width: 6vw;
+    height: 6vw;
+    border-radius: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+#instruct {
+    position: fixed;
+    left: 11vw;
+    color: white;
+    user-select: none;
+}
+
+#levelprogress {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1vw;
+    position: fixed;
+    right: 2vw;
+    top: 2.5vh;
+    width: 25vw;
+    height: 9vh;
+    background-color: #254633;
+    color: white;
+    font-size: 30px;
+    border-radius: 30px;
+}
+
+#staff {
+    position: fixed;
+    left: 5vw;
+    top: 36vh;
+    width: 95vw;
+    height: 18vh;
+    background-color: white;
+    border-left: 4px solid black;
+    background-image: url("resources/images/blank_staff.png");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+.note {
+	position: fixed;
+    left: 25vw;
+	width: 5.5vh;
+	height: 14.5vh;
+}
+
+.notehead {
+	position: absolute;
+	bottom: 0px;
+    background-color: black;
+    width: 5.5vh;
+    height: 4.5vh;
+    border-radius: 50%;
+}
+
+.notestem {
+	position: absolute;
+	right: 0px;
+    background-color: black;
+    width: 0.6vw;
+    height: 13vh;
+}
+
+#clefsymbol {
+    position: relative;
+    left: 3%;
+    top: -50%;
+    width: 6vw;
+    height: 200%;
+    background-image: url('resources/images/treble.png');
+    background-size: 100% 100%;
+    z-index: 1;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+#osmd-container {
+    display: none;
+}
+
+.fadetogreen {
+    animation: fadeToGreen 0.5s forwards;
+}
+
+@keyframes fadeToGreen {
+    from {
+        background-color: black;
+    }
+    to {
+        background-color: lightblue;
+    }
+}
