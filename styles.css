@@ -91,7 +91,7 @@ body {
     z-index: 1;
 }
 
-canvas {
+#scrolling {
     position: absolute;
     top: 0;
     width: 100%;
@@ -100,7 +100,7 @@ canvas {
 }
 
 #osmd-container {
-    display: none;
+    width: 1000vw;
 }
 
 .fadetogreen {
