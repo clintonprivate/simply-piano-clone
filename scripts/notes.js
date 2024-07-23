@@ -8,7 +8,6 @@ function createNextStage() {
         stage = Array(3).fill(notesToLearn[0]);
         learnedNotes.push(notesToLearn[0]);
     } else if (currentStage == 2) {
-        startPlayStage();
         stage = Array(3).fill(notesToLearn[1]);
         learnedNotes.push(notesToLearn[1]);
     } else if (learnedNotes.length < notesToLearn.length) {

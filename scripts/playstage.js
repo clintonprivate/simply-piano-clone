@@ -47,12 +47,7 @@ function fetchMusicXML() {
 }
 
 function displaySheetMusic(musicXML) {
-    var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmd-container", {
-        drawTitle: false,
-        drawMetronomeMarks: false,
-        drawPartNames: false,
-        drawMeasureNumbers: false
-    });
+    var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmd-container", {drawTitle: false, drawMetronomeMarks: false, drawPartNames: false, drawMeasureNumbers: false});
     osmd.load(musicXML);
     osmd.render();
     setTimeout(prepareSheetMusicSVG, 2000);
@@ -63,6 +58,6 @@ function startPlayStage() {
     var backgroundMusic = document.getElementById("backgroundmusic");
     backgroundMusic.src = songUrl;
     backgroundMusic.playbackRate = 0.5;
-    //backgroundMusic.play()
+    backgroundMusic.play()
     fetchMusicXML();
 }
