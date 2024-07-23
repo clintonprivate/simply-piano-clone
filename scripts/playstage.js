@@ -1,8 +1,21 @@
 function prepareSheetMusicSVG() {
-    // Remove padding
-    var staff = document.getElementById("Piano0-1");
-    staff.setAttribute('transform', 'translate(150, -113) scale(1.8)');
+    // Scale up SVG
+    var svg = document.getElementById("Piano0-1");
+    var staff = document.getElementById("staff");
+    var originalHeight = Number(document.getElementsByTagName("rect")[0].getAttribute("height")); 
+    var desiredHeight = staff.offsetHeight;
+    var scaleRatio = (desiredHeight/originalHeight).toFixed(2);
+    svg.setAttribute('transform', "scale(" + scaleRatio.toString() + ")");
     
+    // Reset padding
+    var xDistance = -svg.getBBox().x.toFixed(2);
+    var yDistance = -Number(document.getElementsByTagName("rect")[0].getAttribute("y")).toFixed(2);
+    
+    // Add horizontal padding
+    var paddingAmount = staff.offsetWidth / 6;
+    var finalX = xDistance + paddingAmount;
+    svg.setAttribute('transform', svg.getAttribute("transform") + "translate(" + finalX.toString() + ", " + yDistance.toString() + ")");
+
     // Remove clef symbols
     var elements = document.querySelectorAll('.vf-clef');
     elements.forEach(function(element) {
