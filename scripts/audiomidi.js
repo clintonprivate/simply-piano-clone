@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             // Perform pitch detection
             const pitch = getPitch(dataArray);
-            console.log(pitch.toString() + " Hz")
+            //console.log(pitch.toString() + " Hz")
         };
   
         // Start updating the data every 100ms
